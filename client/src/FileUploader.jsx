@@ -7,8 +7,8 @@ function FileUploader() {
   const [uploadedFile, setUploadedFile] = useState(null);
   const [error, setError] = useState('');
 
-  // const SERVER_URL = 'http://10.153.188.58:5000';
-  const SERVER_URL = import.meta.env.VITE_API_URL;
+  const SERVER_URL = 'http://10.153.188.58:5000';
+  // const SERVER_URL = import.meta.env.VITE_API_URL;
 
 
   const onDrop = async (acceptedFiles) => {
