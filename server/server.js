@@ -6,7 +6,9 @@ const path = require('path');
 const Bonjour = require('bonjour');
 
 const app = express();
-const PORT = 5000;
+// const PORT = 5000;
+const PORT = process.env.PORT || 5000;
+
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -51,6 +53,6 @@ const bonjour = Bonjour();
 bonjour.publish({ name: 'FileShareDevice', type: 'http', port: PORT });
 
 
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running on port ${PORT}`);
 });
