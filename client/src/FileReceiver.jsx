@@ -4,11 +4,15 @@ import axios from 'axios';
 
 const FileReceiver = () => {
   const [files, setFiles] = useState([]);
-  // const SERVER_URL = import.meta.env.VITE_API_URL;
+  
+  const SERVER_PORT = import.meta.env.VITE_API_PORT || '5000';
+  const SERVER_URL = `http://${window.location.hostname}:${SERVER_PORT}`;
+
 
   useEffect(() => {
-    // axios.get(`${SERVER_URL}/files`)
-    axios.get('http://10.153.188.58:5000/files')
+    // axios.get('http://10.153.188.58:5000/files')
+
+    axios.get(`${SERVER_URL}/files`)
       .then(res => setFiles(res.data))
       .catch(err => console.error(err));
   }, []);
